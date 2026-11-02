@@ -2,3 +2,10 @@ node_modules
 .DS_Store
 dist
 *.log
+
+videopromo/*Viking*.mp4
+videopromo/*natulique*.mp4
+videopromo/*ibrahima*.mp4
+videopromo/*Pyramid*.mp4
+videopromo/addvideohddata.mp4
+videopromo/temp_opt_*.mp4

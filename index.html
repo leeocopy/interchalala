@@ -53,6 +53,52 @@
       @media (prefers-reduced-motion: reduce) {
         .preloader { animation-delay: 0.2s; }
       }
+    
+      .wpkoi-media {
+        aspect-ratio: 16/10 !important;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        background: #0d0d10;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+      .wpkoi-media:hover {
+        border-color: var(--color-accent, #ff331f);
+        box-shadow: 0 12px 35px rgba(255, 51, 31, 0.35), 0 0 15px rgba(255, 51, 31, 0.2);
+      }
+      .wpkoi-media-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 3.2rem;
+        height: 3.2rem;
+        background: rgba(23, 23, 26, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        opacity: 0;
+        transition: opacity 0.25s, transform 0.25s;
+        pointer-events: none;
+      }
+      .wpkoi-media:hover .wpkoi-media-play {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+      .wpkoi-media-play svg {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-left: 2px;
+        fill: currentColor;
+      }
+
     </style>
 
     <link rel="preload" href="/font/Anton.woff2" as="font" type="font/woff2" crossorigin />
@@ -214,6 +260,52 @@
         background: #ff331f;
         transform: scale(1.1);
       }
+    
+      .wpkoi-media {
+        aspect-ratio: 16/10 !important;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        background: #0d0d10;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+      .wpkoi-media:hover {
+        border-color: var(--color-accent, #ff331f);
+        box-shadow: 0 12px 35px rgba(255, 51, 31, 0.35), 0 0 15px rgba(255, 51, 31, 0.2);
+      }
+      .wpkoi-media-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 3.2rem;
+        height: 3.2rem;
+        background: rgba(23, 23, 26, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        opacity: 0;
+        transition: opacity 0.25s, transform 0.25s;
+        pointer-events: none;
+      }
+      .wpkoi-media:hover .wpkoi-media-play {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+      .wpkoi-media-play svg {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-left: 2px;
+        fill: currentColor;
+      }
+
     </style>
 
   </head>
@@ -680,14 +772,14 @@
           </div>
         </section>
 
-        <section id="wpkoi" class="section wpkoi" aria-label="Nos Formules d'Accompagnement">
+                <section id="wpkoi" class="section wpkoi" aria-label="Nos Vidéos Promo &amp; Motion Graphics">
           <div class="wpkoi-stack">
             <div class="wpkoi-head">
               <div class="wpkoi-experience-wrap">
                 <p class="wpkoi-experience">
-                  Nos Formules <span class="wpkoi-experience-sep">/</span> Flexibilité
+                  Vidéos Promo <span class="wpkoi-experience-sep">/</span> Motion Graphics
                   <span class="wpkoi-experience-arrow">&rarr;</span>
-                  <span class="wpkoi-experience-now">Sur-Mesure</span>
+                  <span class="wpkoi-experience-now">Haute Définition</span>
                 </p>
                 <svg class="wpkoi-experience-underline" viewBox="0 0 340 20" preserveAspectRatio="none" aria-hidden="true">
                   <path d="M6 16 C50 14, 130 10, 170 9 C220 8, 290 7, 334 9" class="wpkoi-experience-underline-stroke" />
@@ -696,8 +788,8 @@
 
               <div class="wpkoi-title-row">
                 <h2 class="wpkoi-title">
-                  <span class="wpkoi-title-line wpkoi-title-line--light">Vos Besoins,</span>
-                  <span class="wpkoi-title-line wpkoi-title-line--accent">Nos Formules.</span>
+                  <span class="wpkoi-title-line wpkoi-title-line--light">Vidéos Promo,</span>
+                  <span class="wpkoi-title-line wpkoi-title-line--accent">Motion Graphics.</span>
                 </h2>
                 <a class="wpkoi-visit wpkoi-visit--main" href="#contact">
                   <span class="wpkoi-visit-text">
@@ -720,7 +812,7 @@
                   <div class="wpkoi-counter" aria-hidden="true">
                     <span class="wpkoi-counter-current"><span class="wpkoi-counter-value">01</span></span>
                     <span class="wpkoi-counter-slash">/</span>
-                    <span class="wpkoi-counter-total">05</span>
+                    <span class="wpkoi-counter-total">08</span>
                   </div>
 
                   <p class="wpkoi-scroll-hint" aria-hidden="true">
@@ -731,66 +823,68 @@
 
                 <div class="wpkoi-gallery">
                   <div class="wpkoi-track">
-                    <figure class="wpkoi-media wpkoi-media--shot">
-                      <img
-                        src="/img/wpkoi/awwwards-pic-1-1024.webp"
-                        srcset="/img/wpkoi/awwwards-pic-1-512.webp 512w, /img/wpkoi/awwwards-pic-1-720.webp 720w, /img/wpkoi/awwwards-pic-1-1024.webp 1024w, /img/wpkoi/awwwards-pic-1-1280.webp 1280w, /img/wpkoi/awwwards-pic-1-1600.webp 1600w"
-                        sizes="64vh"
-                        width="1600"
-                        height="1200"
-                        decoding="async"
-                        class="wpkoi-media-inner"
-                        alt="WPKoi home page — WebGL hero with the theme wall behind it"
-                        draggable="false"
-                        loading="lazy"
-                      />
-                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>01</figcaption>
+                    <figure class="wpkoi-media wpkoi-media--clip" data-video-src="/videopromo/iacrmvideo.mp4" role="button" tabindex="0" aria-label="IACRM • Démo &amp; IA">
+                      <video class="wpkoi-media-inner" src="/videopromo/thumb_1.mp4" poster="/videopromo/poster_1.webp" muted loop playsinline preload="metadata"></video>
+                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>01 &bull; IACRM &bull; Démo IA</figcaption>
+                      <div class="wpkoi-media-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
                     </figure>
 
-                    <figure class="wpkoi-media wpkoi-media--shot">
-                      <img
-                        src="/img/wpkoi/awwwards-pic-2-1024.webp"
-                        srcset="/img/wpkoi/awwwards-pic-2-512.webp 512w, /img/wpkoi/awwwards-pic-2-720.webp 720w, /img/wpkoi/awwwards-pic-2-1024.webp 1024w, /img/wpkoi/awwwards-pic-2-1280.webp 1280w, /img/wpkoi/awwwards-pic-2-1600.webp 1600w"
-                        sizes="64vh"
-                        width="1600"
-                        height="1200"
-                        decoding="async"
-                        class="wpkoi-media-inner"
-                        alt="WPKoi themes catalog — Martanda, Lalita, Prakata and more"
-                        draggable="false"
-                        loading="lazy"
-                      />
-                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>02</figcaption>
+                    <figure class="wpkoi-media wpkoi-media--clip" data-video-src="/videopromo/qualyxfinn (1).mp4" role="button" tabindex="0" aria-label="Qualyx • Motion Analytics">
+                      <video class="wpkoi-media-inner" src="/videopromo/thumb_2.mp4" poster="/videopromo/poster_2.webp" muted loop playsinline preload="metadata"></video>
+                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>02 &bull; Qualyx &bull; Data</figcaption>
+                      <div class="wpkoi-media-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
                     </figure>
 
-                    <figure class="wpkoi-media wpkoi-media--clip">
-                      <video class="wpkoi-media-inner" width="640" height="480" muted loop playsinline preload="metadata" aria-hidden="true">
-                        <source src="/img/wpkoi/awwwards-vid-1-640.mp4" type="video/mp4" />
-                      </video>
-                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot" aria-hidden="true"></span>03<span class="visually-hidden"> &mdash; WPKoi site in motion</span></figcaption>
+                    <figure class="wpkoi-media wpkoi-media--clip" data-video-src="/videopromo/finalvideohdautomatisation.mp4" role="button" tabindex="0" aria-label="Automation • Workflows IA">
+                      <video class="wpkoi-media-inner" src="/videopromo/thumb_3.mp4" poster="/videopromo/poster_3.webp" muted loop playsinline preload="metadata"></video>
+                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>03 &bull; Automation &bull; Workflows</figcaption>
+                      <div class="wpkoi-media-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
                     </figure>
 
-                    <figure class="wpkoi-media wpkoi-media--shot">
-                      <img
-                        src="/img/wpkoi/awwwards-pic-3-1024.webp"
-                        srcset="/img/wpkoi/awwwards-pic-3-512.webp 512w, /img/wpkoi/awwwards-pic-3-720.webp 720w, /img/wpkoi/awwwards-pic-3-1024.webp 1024w, /img/wpkoi/awwwards-pic-3-1280.webp 1280w, /img/wpkoi/awwwards-pic-3-1600.webp 1600w"
-                        sizes="64vh"
-                        width="1600"
-                        height="1200"
-                        decoding="async"
-                        class="wpkoi-media-inner"
-                        alt="WPKoi themes browsed by color category"
-                        draggable="false"
-                        loading="lazy"
-                      />
-                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>04</figcaption>
+                    <figure class="wpkoi-media wpkoi-media--clip" data-video-src="/videopromo/havetdigital.mp4" role="button" tabindex="0" aria-label="Gonzague • Architecture Showcase">
+                      <video class="wpkoi-media-inner" src="/videopromo/thumb_4.mp4" poster="/videopromo/poster_4.webp" muted loop playsinline preload="metadata"></video>
+                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>04 &bull; Gonzague &bull; Architecture</figcaption>
+                      <div class="wpkoi-media-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
                     </figure>
 
-                    <figure class="wpkoi-media wpkoi-media--clip">
-                      <video class="wpkoi-media-inner" width="640" height="480" muted loop playsinline preload="metadata" aria-hidden="true">
-                        <source src="/img/wpkoi/awwwards-vid-2-640.mp4" type="video/mp4" />
-                      </video>
-                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot" aria-hidden="true"></span>05<span class="visually-hidden"> &mdash; WPKoi site interactions</span></figcaption>
+                    <figure class="wpkoi-media wpkoi-media--clip" data-video-src="/videopromo/promo3fin.mp4" role="button" tabindex="0" aria-label="Promo • Motion Commercial">
+                      <video class="wpkoi-media-inner" src="/videopromo/thumb_5.mp4" poster="/videopromo/poster_5.webp" muted loop playsinline preload="metadata"></video>
+                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>05 &bull; Promo &bull; Motion Ads</figcaption>
+                      <div class="wpkoi-media-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
+                    </figure>
+
+                    <figure class="wpkoi-media wpkoi-media--clip" data-video-src="/videopromo/01-nikki.mp4" role="button" tabindex="0" aria-label="Créatif • Motion Design">
+                      <video class="wpkoi-media-inner" src="/videopromo/thumb_6.mp4" poster="/videopromo/poster_6.webp" muted loop playsinline preload="metadata"></video>
+                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>06 &bull; Créatif &bull; Motion</figcaption>
+                      <div class="wpkoi-media-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
+                    </figure>
+
+                    <figure class="wpkoi-media wpkoi-media--clip" data-video-src="/videopromo/videobrand.mp4" role="button" tabindex="0" aria-label="Branding • Vidéo de Marque">
+                      <video class="wpkoi-media-inner" src="/videopromo/thumb_7.mp4" poster="/videopromo/poster_7.webp" muted loop playsinline preload="metadata"></video>
+                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>07 &bull; Brand &bull; Identité</figcaption>
+                      <div class="wpkoi-media-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
+                    </figure>
+
+                    <figure class="wpkoi-media wpkoi-media--clip" data-video-src="/videopromo/temp_add.mp4" role="button" tabindex="0" aria-label="DataPull • Ads &amp; Performance">
+                      <video class="wpkoi-media-inner" src="/videopromo/thumb_8.mp4" poster="/videopromo/poster_8.webp" muted loop playsinline preload="metadata"></video>
+                      <figcaption class="wpkoi-media-tag"><span class="wpkoi-media-dot"></span>08 &bull; Ads &bull; Performance</figcaption>
+                      <div class="wpkoi-media-play" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
                     </figure>
                   </div>
                 </div>
@@ -1195,6 +1289,14 @@
             modalVideo.pause();
             modalVideo.src = '';
           }
+
+                    document.querySelectorAll('.wpkoi-media').forEach(function(media) {
+            media.addEventListener('click', function(e) {
+              e.preventDefault();
+              const videoSrc = media.getAttribute('data-video-src');
+              if (videoSrc) openReel(videoSrc);
+            });
+          });
 
           document.querySelectorAll('.awards-card').forEach(function(card) {
             card.addEventListener('click', function(e) {
