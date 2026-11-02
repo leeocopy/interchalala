@@ -226,7 +226,15 @@
         align-items: center;
         justify-content: center;
         transform: scale(0.92);
-        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.25s ease, max-width 0.25s ease;
+      }
+      .reel-modal.is-wide .reel-modal-content {
+        width: min(94vw, calc(86vh * 16 / 9), 1280px);
+        max-width: 1280px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        max-height: 86vh;
+        border-radius: 16px;
       }
       .reel-modal.is-active .reel-modal-content {
         transform: scale(1);
@@ -1275,8 +1283,13 @@
           const modalClose = modal.querySelector('.reel-modal-close');
           const modalBackdrop = modal.querySelector('.reel-modal-backdrop');
 
-          function openReel(src) {
+          function openReel(src, mode) {
             if (!src) return;
+            if (mode === 'wide') {
+              modal.classList.add('is-wide');
+            } else if (mode === 'reel') {
+              modal.classList.remove('is-wide');
+            }
             modalVideo.src = src;
             modal.classList.add('is-active');
             modal.setAttribute('aria-hidden', 'false');
@@ -1288,13 +1301,24 @@
             modal.setAttribute('aria-hidden', 'true');
             modalVideo.pause();
             modalVideo.src = '';
+            modal.classList.remove('is-wide');
           }
 
-                    document.querySelectorAll('.wpkoi-media').forEach(function(media) {
+          modalVideo.addEventListener('loadedmetadata', function() {
+            if (modalVideo.videoWidth && modalVideo.videoHeight) {
+              if (modalVideo.videoWidth > modalVideo.videoHeight) {
+                modal.classList.add('is-wide');
+              } else {
+                modal.classList.remove('is-wide');
+              }
+            }
+          });
+
+          document.querySelectorAll('.wpkoi-media').forEach(function(media) {
             media.addEventListener('click', function(e) {
               e.preventDefault();
               const videoSrc = media.getAttribute('data-video-src');
-              if (videoSrc) openReel(videoSrc);
+              if (videoSrc) openReel(videoSrc, 'wide');
             });
           });
 
@@ -1302,7 +1326,7 @@
             card.addEventListener('click', function(e) {
               e.preventDefault();
               const videoSrc = card.getAttribute('data-video-src');
-              if (videoSrc) openReel(videoSrc);
+              if (videoSrc) openReel(videoSrc, 'reel');
             });
           });
 
@@ -1312,7 +1336,7 @@
               const cards = document.querySelectorAll('.awards-card');
               if (cards[idx]) {
                 const videoSrc = cards[idx].getAttribute('data-video-src');
-                if (videoSrc) openReel(videoSrc);
+                if (videoSrc) openReel(videoSrc, 'reel');
               }
             });
           });
