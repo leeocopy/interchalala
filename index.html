@@ -82,6 +82,140 @@
     </script>
     <script type="module" crossorigin src="/assets/main-dsDJGiab.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/main-Cqp_3XBK.css">
+  
+    <style>
+      .awards-card {
+        aspect-ratio: 9/16 !important;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: #0d0d10;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+      .awards-card:hover {
+        border-color: var(--color-accent, #ff331f);
+        box-shadow: 0 12px 35px rgba(255, 51, 31, 0.35), 0 0 15px rgba(255, 51, 31, 0.2);
+      }
+      .awards-card-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
+      }
+      .awards-card-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 2.8rem;
+        height: 2.8rem;
+        background: rgba(23, 23, 26, 0.82);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        opacity: 0;
+        transition: opacity 0.25s, transform 0.25s;
+        pointer-events: none;
+      }
+      .awards-card:hover .awards-card-play {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+      .awards-card-play svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-left: 2px;
+        fill: currentColor;
+      }
+      .awards-list li {
+        cursor: pointer;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .awards-list li:hover {
+        color: var(--color-accent, #ff331f);
+        transform: translateX(4px);
+      }
+      /* Reel Modal */
+      .reel-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .reel-modal.is-active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .reel-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 12, 0.92);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+      .reel-modal-content {
+        position: relative;
+        z-index: 2;
+        width: min(92vw, 420px);
+        height: min(86vh, 750px);
+        background: #000;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0.92);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reel-modal.is-active .reel-modal-content {
+        transform: scale(1);
+      }
+      .reel-modal-video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #000;
+      }
+      .reel-modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 10;
+        width: 2.6rem;
+        height: 2.6rem;
+        border-radius: 50%;
+        background: rgba(23, 23, 26, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #fff;
+        font-size: 1.6rem;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, transform 0.2s;
+      }
+      .reel-modal-close:hover {
+        background: #ff331f;
+        transform: scale(1.1);
+      }
+    </style>
+
   </head>
   <body>
     
@@ -702,12 +836,12 @@
             </div>
           </div>
         </section>
-        <section id="awards" class="section awards">
+                <section id="awards" class="section awards" aria-label="Nos Reels &amp; Créations Vidéo">
           <div class="awards-head">
             <h2 class="awards-heading">
-              <span class="awards-heading-line awards-heading-line--light">I Wanted To Know</span>
+              <span class="awards-heading-line awards-heading-line--light">Reels &amp; Motion.</span>
               <span class="awards-heading-line-wrap">
-                <span class="awards-heading-line awards-heading-line--accent">How Far&hellip;</span>
+                <span class="awards-heading-line awards-heading-line--accent">Impact Visuel&hellip;</span>
                 <svg class="awards-heading-underline" viewBox="0 0 400 30" preserveAspectRatio="none" aria-hidden="true">
                   <path d="M8 26 C60 22, 140 16, 200 15 C260 14, 340 12, 392 14" class="awards-heading-underline-stroke" />
                 </svg>
@@ -715,308 +849,275 @@
             </h2>
             <p class="awards-subheading">
               <img src="/img/arrow.webp" class="awards-subheading-arrow" alt="" width="250" height="250" decoding="async" />
-              <span class="awards-subheading-text">Worth the try</span>
+              <span class="awards-subheading-text">Cliquez pour regarder</span>
             </p>
           </div>
 
           <div class="awards-orbit">
             <div class="awards-credits">
-              <p class="awards-credits-title">Nos Engagements Clés</p>
+              <p class="awards-credits-title">Nos Formats Vidéo &amp; Reels</p>
               
-              <ul class="awards-list" aria-label="Awards and nominations">
-                <li>
-                  <a href="https://www.awwwards.com/sites/daniel-kiss-portfolio" target="_blank" rel="noopener noreferrer">
-                    Awwwards Honorable Mention (danielkiss.hu)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.cssdesignawards.com/sites/wpkoi-wordpress-themes/49813/" target="_blank" rel="noopener noreferrer">
-                    CSSDA Special Kudos (WPKoi)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.cssdesignawards.com/sites/wpkoi-wordpress-themes/49813/" target="_blank" rel="noopener noreferrer">
-                    CSSDA Innovation Public Award (WPKoi)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.cssdesignawards.com/sites/wpkoi-wordpress-themes/49813/" target="_blank" rel="noopener noreferrer">
-                    CSSDA UI Public Award (WPKoi)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.cssdesignawards.com/sites/wpkoi-wordpress-themes/49813/" target="_blank" rel="noopener noreferrer">
-                    CSSDA UX Public Award (WPKoi)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.csswinner.com/details/daniel-kiss-creative-development/19398" target="_blank" rel="noopener noreferrer">
-                    CSSWinner SOTD (danielkiss.hu)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.csswinner.com/details/tira-le-chat/19455" target="_blank" rel="noopener noreferrer">
-                    CSSWinner STAR (tiralechat.hu)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.designnominees.com/sites/daniel-kiss-creative-web-development" target="_blank" rel="noopener noreferrer">
-                    Design Nominees SOTD (danielkiss.hu)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.designnominees.com/themes/hrasva-wpkoi-wordpress-theme" target="_blank" rel="noopener noreferrer">
-                    Design Nominees TOTD (Hrasva)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.designnominees.com/themes/lovebird" target="_blank" rel="noopener noreferrer">
-                    Design Nominees TOTD (Lovebird)
-                  </a>
-                </li>
-                <li>
-                  <a href="https://cssnectar.com/css-gallery-inspiration/wpkoi-wordpress-themes/" target="_blank" rel="noopener noreferrer">
-                    CSS Nectar SOTD (WPKoi)
-                  </a>
-                </li>
+              <ul class="awards-list" aria-label="Nos Reels et vidéos publicitaires">
+                <li><a href="#reel-1" role="button">Reel 01 — Spot Publicitaire &amp; Brand Ads</a></li>
+                <li><a href="#reel-2" role="button">Reel 02 — Motion Design &amp; Création Visuelle</a></li>
+                <li><a href="#reel-3" role="button">Reel 03 — Campagne Vidéo Réseaux Sociaux</a></li>
+                <li><a href="#reel-4" role="button">Reel 04 — Vidéo Promo &amp; Conversion E-Commerce</a></li>
+                <li><a href="#reel-5" role="button">Reel 05 — Teaser &amp; Lancement de Produit</a></li>
+                <li><a href="#reel-6" role="button">Reel 06 — Contenu Dynamique Haute Visibilité</a></li>
+                <li><a href="#reel-7" role="button">Reel 07 — Showcase Produit &amp; Storytelling</a></li>
+                <li><a href="#reel-8" role="button">Reel 08 — Short Créatif &amp; Engagement Viral</a></li>
+                <li><a href="#reel-9" role="button">Reel 09 — Format Court &amp; Snack Content</a></li>
+                <li><a href="#reel-10" role="button">Reel 10 — Montage Dynamique &amp; Brand Story</a></li>
+                <li><a href="#reel-11" role="button">Reel 11 — Capsule Vidéo de Marque 360°</a></li>
               </ul>
             </div>
 
             <div class="awards-ring">
-              <a
+              <div
                 class="awards-card"
-                href="https://www.awwwards.com/sites/daniel-kiss-portfolio"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Awwwards — Honorable Mention, danielkiss.hu"
+                data-video-src="/videoreels/REELS3ads.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 01 — Spot Publicitaire &amp; Brand Ads"
               >
-                <img
-                  src="/img/awards/award-11-480.webp"
-                  srcset="/img/awards/award-11-240.webp 240w, /img/awards/award-11-340.webp 340w, /img/awards/award-11-480.webp 480w, /img/awards/award-11-680.webp 680w, /img/awards/award-11-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_1.mp4"
+                  poster="/videoreels/poster_1.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://www.cssdesignawards.com/sites/wpkoi-wordpress-themes/49813/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CSS Design Awards — Special Kudos for WPKoi WordPress Themes"
+                data-video-src="/videoreels/purpale7.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 02 — Motion Design &amp; Création Visuelle"
               >
-                <img
-                  src="/img/awards/award-1-480.webp"
-                  srcset="/img/awards/award-1-240.webp 240w, /img/awards/award-1-340.webp 340w, /img/awards/award-1-480.webp 480w, /img/awards/award-1-680.webp 680w, /img/awards/award-1-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_2.mp4"
+                  poster="/videoreels/poster_2.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://www.cssdesignawards.com/sites/wpkoi-wordpress-themes/49813/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CSS Design Awards — Innovation Public Award for WPKoi WordPress Themes"
+                data-video-src="/videoreels/purple2.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 03 — Campagne Vidéo Réseaux Sociaux"
               >
-                <img
-                  src="/img/awards/award-2-480.webp"
-                  srcset="/img/awards/award-2-240.webp 240w, /img/awards/award-2-340.webp 340w, /img/awards/award-2-480.webp 480w, /img/awards/award-2-680.webp 680w, /img/awards/award-2-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_3.mp4"
+                  poster="/videoreels/poster_3.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://www.cssdesignawards.com/sites/wpkoi-wordpress-themes/49813/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CSS Design Awards — UI Public Award for WPKoi WordPress Themes"
+                data-video-src="/videoreels/v3_1.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 04 — Vidéo Promo &amp; Conversion E-Commerce"
               >
-                <img
-                  src="/img/awards/award-3-480.webp"
-                  srcset="/img/awards/award-3-240.webp 240w, /img/awards/award-3-340.webp 340w, /img/awards/award-3-480.webp 480w, /img/awards/award-3-680.webp 680w, /img/awards/award-3-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_4.mp4"
+                  poster="/videoreels/poster_4.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://www.cssdesignawards.com/sites/wpkoi-wordpress-themes/49813/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CSS Design Awards — UX Public Award for WPKoi WordPress Themes"
+                data-video-src="/videoreels/video4.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 05 — Teaser &amp; Lancement de Produit"
               >
-                <img
-                  src="/img/awards/award-4-480.webp"
-                  srcset="/img/awards/award-4-240.webp 240w, /img/awards/award-4-340.webp 340w, /img/awards/award-4-480.webp 480w, /img/awards/award-4-680.webp 680w, /img/awards/award-4-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_5.mp4"
+                  poster="/videoreels/poster_5.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://www.csswinner.com/details/daniel-kiss-creative-development/19398"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CSSWinner — Site of the Day, danielkiss.hu"
+                data-video-src="/videoreels/videohv1.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 06 — Contenu Dynamique Haute Visibilité"
               >
-                <img
-                  src="/img/awards/award-10-480.webp"
-                  srcset="/img/awards/award-10-240.webp 240w, /img/awards/award-10-340.webp 340w, /img/awards/award-10-480.webp 480w, /img/awards/award-10-680.webp 680w, /img/awards/award-10-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_6.mp4"
+                  poster="/videoreels/poster_6.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://www.csswinner.com/details/tira-le-chat/19455"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CSSWinner — Star, tiralechat.hu"
+                data-video-src="/videoreels/r5N.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 07 — Showcase Produit &amp; Storytelling"
               >
-                <img
-                  src="/img/awards/award-12-480.webp"
-                  srcset="/img/awards/award-12-240.webp 240w, /img/awards/award-12-340.webp 340w, /img/awards/award-12-480.webp 480w, /img/awards/award-12-680.webp 680w, /img/awards/award-12-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_7.mp4"
+                  poster="/videoreels/poster_7.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://www.designnominees.com/sites/daniel-kiss-creative-web-development"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Design Nominees — Site of the Day, danielkiss.hu"
+                data-video-src="/videoreels/446ebaeb324cf4fce256d19c292412de_720w.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 08 — Short Créatif &amp; Engagement Viral"
               >
-                <img
-                  src="/img/awards/award-9-480.webp"
-                  srcset="/img/awards/award-9-240.webp 240w, /img/awards/award-9-340.webp 340w, /img/awards/award-9-480.webp 480w, /img/awards/award-9-680.webp 680w, /img/awards/award-9-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_8.mp4"
+                  poster="/videoreels/poster_8.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://www.designnominees.com/themes/hrasva-wpkoi-wordpress-theme"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Design Nominees — Theme of the Day for the Hrasva WordPress theme"
+                data-video-src="/videoreels/82443ED9914BBAF8C99B91432E2DA79B_video_dashinit.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 09 — Format Court &amp; Snack Content"
               >
-                <img
-                  src="/img/awards/award-5-480.webp"
-                  srcset="/img/awards/award-5-240.webp 240w, /img/awards/award-5-340.webp 340w, /img/awards/award-5-480.webp 480w, /img/awards/award-5-680.webp 680w, /img/awards/award-5-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_9.mp4"
+                  poster="/videoreels/poster_9.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://www.designnominees.com/themes/lovebird"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Design Nominees — Theme of the Day for the Lovebird WordPress theme"
+                data-video-src="/videoreels/f6b297dee8cd16b4c1f6fbe5d5273e80.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 10 — Montage Dynamique &amp; Brand Story"
               >
-                <img
-                  src="/img/awards/award-6-480.webp"
-                  srcset="/img/awards/award-6-240.webp 240w, /img/awards/award-6-340.webp 340w, /img/awards/award-6-480.webp 480w, /img/awards/award-6-680.webp 680w, /img/awards/award-6-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_10.mp4"
+                  poster="/videoreels/poster_10.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
 
-              <a
+              <div
                 class="awards-card"
-                href="https://cssnectar.com/css-gallery-inspiration/wpkoi-wordpress-themes/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="CSS Nectar — Site of the Day, WPKoi WordPress Themes"
+                data-video-src="/videoreels/032e2564fd6b568d1f347385ea00c0ef.mp4"
+                role="button"
+                tabindex="0"
+                aria-label="Reel 11 — Capsule Vidéo de Marque 360°"
               >
-                <img
-                  src="/img/awards/award-8-480.webp"
-                  srcset="/img/awards/award-8-240.webp 240w, /img/awards/award-8-340.webp 340w, /img/awards/award-8-480.webp 480w, /img/awards/award-8-680.webp 680w, /img/awards/award-8-960.webp 960w"
-                  sizes="min(15vw, 32.2vh)"
-                  width="2480"
-                  height="3508"
-                  class="awards-card-image"
-                  alt=""
-                  draggable="false"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
+                <video
+                  class="awards-card-video"
+                  src="/videoreels/thumb_11.mp4"
+                  poster="/videoreels/poster_11.webp"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                ></video>
+                <div class="awards-card-play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
             </div>
 
             <div class="awards-badge" aria-hidden="true">
-              <span class="awards-badge-text">ONA</span>
+              <span class="awards-badge-text">REELS</span>
               <img src="/img/arrow.webp" class="awards-badge-arrow" alt="" width="250" height="250" decoding="async" />
             </div>
           </div>
@@ -1060,6 +1161,76 @@
       </div>
     </div>
 
+
+  
+    <!-- Reel Modal -->
+    <div class="reel-modal" id="reelModal" aria-hidden="true">
+      <div class="reel-modal-backdrop"></div>
+      <div class="reel-modal-content">
+        <button type="button" class="reel-modal-close" aria-label="Fermer la vidéo">&times;</button>
+        <video class="reel-modal-video" controls playsinline src=""></video>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        function initReels() {
+          const modal = document.getElementById('reelModal');
+          if (!modal) return;
+          const modalVideo = modal.querySelector('.reel-modal-video');
+          const modalClose = modal.querySelector('.reel-modal-close');
+          const modalBackdrop = modal.querySelector('.reel-modal-backdrop');
+
+          function openReel(src) {
+            if (!src) return;
+            modalVideo.src = src;
+            modal.classList.add('is-active');
+            modal.setAttribute('aria-hidden', 'false');
+            modalVideo.play().catch(function() {});
+          }
+
+          function closeReel() {
+            modal.classList.remove('is-active');
+            modal.setAttribute('aria-hidden', 'true');
+            modalVideo.pause();
+            modalVideo.src = '';
+          }
+
+          document.querySelectorAll('.awards-card').forEach(function(card) {
+            card.addEventListener('click', function(e) {
+              e.preventDefault();
+              const videoSrc = card.getAttribute('data-video-src');
+              if (videoSrc) openReel(videoSrc);
+            });
+          });
+
+          document.querySelectorAll('.awards-list li').forEach(function(li, idx) {
+            li.addEventListener('click', function(e) {
+              e.preventDefault();
+              const cards = document.querySelectorAll('.awards-card');
+              if (cards[idx]) {
+                const videoSrc = cards[idx].getAttribute('data-video-src');
+                if (videoSrc) openReel(videoSrc);
+              }
+            });
+          });
+
+          if (modalClose) modalClose.addEventListener('click', closeReel);
+          if (modalBackdrop) modalBackdrop.addEventListener('click', closeReel);
+          window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+              closeReel();
+            }
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initReels);
+        } else {
+          initReels();
+        }
+      })();
+    </script>
 
   </body>
 </html>
