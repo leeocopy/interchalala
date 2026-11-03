@@ -1360,10 +1360,40 @@
           });
         }
 
+        
+        function initContactGrid() {
+          const grid = document.querySelector('.contact-grid');
+          if (!grid) return;
+
+          function applyContactTiles() {
+            const imgs = grid.querySelectorAll('.contact-tile img');
+            if (!imgs.length) return;
+            imgs.forEach(function(img, idx) {
+              const tileNum = (idx % 22) + 1;
+              const expectedSrc = '/img/contact/' + tileNum + '.webp';
+              if (img.getAttribute('src') !== expectedSrc) {
+                img.setAttribute('src', expectedSrc);
+                img.removeAttribute('srcset');
+              }
+            });
+          }
+
+          applyContactTiles();
+
+          const observer = new MutationObserver(function() {
+            applyContactTiles();
+          });
+          observer.observe(grid, { childList: true });
+
+          document.addEventListener('preloader:done', applyContactTiles);
+          window.addEventListener('resize', applyContactTiles);
+        }
+
         if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initReels);
+          document.addEventListener('DOMContentLoaded', function() { initReels(); initContactGrid(); });
         } else {
           initReels();
+          initContactGrid();
         }
       })();
     </script>
