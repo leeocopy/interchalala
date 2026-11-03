@@ -902,7 +902,7 @@ Kill switches: add ?off=name,name — one at a time.
       hf,
     ));
 }
-var vf = `DANIEL KISS`,
+var vf = `PRESTO ILLICO`,
   yf = { top: 0.076, bottom: 0.924 },
   bf = [0.7, 2.4],
   xf = [0.08, 0.26],
@@ -1474,9 +1474,9 @@ function Sp(e, t, n = {}) {
   let r = e.getContext(`2d`);
   if (!r) return null;
   let i = getComputedStyle(document.documentElement),
-    a = i.getPropertyValue(`--color-light`).trim() || `#ece7dc`,
-    o = i.getPropertyValue(`--color-bg`).trim() || `#17171a`,
-    s = i.getPropertyValue(`--color-accent`).trim() || `#ff321d`,
+    a = i.getPropertyValue(`--color-light`).trim() || `#eaf5d4`,
+    o = i.getPropertyValue(`--color-bg`).trim() || `#1d1b1a`,
+    s = i.getPropertyValue(`--color-accent`).trim() || `#b3e823`,
     c = n.slideAspect ?? 1,
     l = n.gapRatio ?? 0.11,
     u = n.baseSpeed ?? 55,

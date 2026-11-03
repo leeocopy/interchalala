@@ -37,11 +37,11 @@ html {
   font-size: min(1.0596vw, 2.276vh);
 }
 :root {
-  --color-bg: #17171a;
-  --color-text: #ff321d;
-  --color-text-muted: #7a352c;
-  --color-accent: #ff321d;
-  --color-light: #ece7dc;
+  --color-bg: #1d1b1a;
+  --color-text: #b3e823;
+  --color-text-muted: #616d48;
+  --color-accent: #b3e823;
+  --color-light: #eaf5d4;
   --font-body: "Satoshi", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Satoshi", var(--font-body);
   --font-poster: "Anton", var(--font-display);
@@ -422,6 +422,45 @@ h3 {
 }
 .sidebar-name.is-moving .hero-mark {
   will-change: opacity;
+}
+.sidebar-logo-wrap {
+  width: 100%;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+.sidebar-logo-link {
+  display: inline-block;
+  line-height: 0;
+  transition: opacity 0.25s, transform 0.25s;
+}
+.sidebar-logo-link:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+.sidebar-logo-img {
+  width: auto;
+  max-width: 14rem;
+  height: 3.5rem;
+  object-fit: contain;
+  display: block;
+}
+.topbar-logo-link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+.topbar-logo-link:hover {
+  opacity: 0.85;
+}
+.topbar-logo-img {
+  height: 2.2rem;
+  width: auto;
+  max-width: 8rem;
+  object-fit: contain;
+  display: block;
 }
 .sidebar-name {
   --hero-flip: 4.05;
@@ -877,17 +916,18 @@ h3 {
 .sidebar-photo,
 .sidebar-photo-glitch {
   object-fit: cover;
-  object-position: top center;
+  object-position: center;
   width: 100%;
   height: 100%;
   display: block;
 }
 .sidebar-photo {
-  filter: contrast(1.2) grayscale(0.3) brightness(0.9) sepia(0.08);
-  transition: filter 0.5s;
+  filter: brightness(0.95);
+  transition: filter 0.4s, transform 0.4s;
 }
 .sidebar-photo-wrap:hover .sidebar-photo {
-  filter: contrast(1.25) grayscale(0) brightness() sepia(0);
+  filter: brightness(1.05);
+  transform: scale(1.02);
 }
 .sidebar-photo-glitch {
   z-index: 1;
@@ -1017,8 +1057,8 @@ h3 {
   font-family: var(--font-secondary);
   letter-spacing: 0.08em;
   color: var(--color-light);
-  background: #ece7dc0a;
-  border: 1px solid #ece7dc47;
+  background: #eaf5d40a;
+  border: 1px solid #eaf5d447;
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
@@ -1034,7 +1074,7 @@ h3 {
 }
 .sidebar-email:hover {
   border-color: var(--color-accent);
-  background: #ff321d14;
+  background: #b3e82314;
 }
 .sidebar-email-icon {
   width: 1.1rem;
@@ -1193,8 +1233,8 @@ h3 {
     z-index: 0;
     pointer-events: none;
     background:
-      radial-gradient(38% 46% at -6%, #ff321d8c, #ff321d00 72%),
-      radial-gradient(38% 46% at 106%, #ff321d8c, #ff321d00 72%);
+      radial-gradient(38% 46% at -6%, #b3e8238c, #b3e82300 72%),
+      radial-gradient(38% 46% at 106%, #b3e8238c, #b3e82300 72%);
     position: absolute;
     inset: 0;
   }
@@ -1220,6 +1260,14 @@ h3 {
   .site-sidebar {
     --sidebar-photo-width: 44%;
     --sidebar-photo-max-height: calc(18 * var(--ui));
+  }
+  .sidebar-logo-img {
+    height: calc(2.8 * var(--ui));
+    max-width: calc(11 * var(--ui));
+  }
+  .topbar-logo-img {
+    height: calc(1.9 * var(--ui));
+    max-width: calc(7 * var(--ui));
   }
   .sidebar-name {
     margin-bottom: calc(1.9 * var(--ui));
@@ -2296,10 +2344,10 @@ section#skills {
   display: inline-block;
 }
 .wpkoi-counter-slash {
-  color: #ece7dc4d;
+  color: #eaf5d44d;
 }
 .wpkoi-counter-total {
-  color: #ece7dc80;
+  color: #eaf5d480;
 }
 .wpkoi-footer {
   justify-content: space-between;
@@ -2316,7 +2364,7 @@ section#skills {
   display: grid;
 }
 .wpkoi-timeline-item {
-  border-left: 1px solid #ece7dc29;
+  border-left: 1px solid #eaf5d429;
   padding: 0 0.6rem;
 }
 .wpkoi-timeline-item:first-child {
@@ -2371,7 +2419,7 @@ section#skills {
     max-width: 100%;
   }
   .wpkoi-timeline-item {
-    border-left: 1px solid #ece7dc29;
+    border-left: 1px solid #eaf5d429;
     padding: 0 0.9rem;
   }
   .wpkoi-timeline-item:nth-child(odd) {
@@ -2514,7 +2562,7 @@ section#skills {
   }
   .wpkoi-timeline-item {
     padding: 0 max(1rem, calc(0.8 * var(--ui)));
-    border-left: 1px solid #ece7dc29;
+    border-left: 1px solid #eaf5d429;
   }
   .wpkoi-timeline-item:nth-child(odd) {
     border-left: 0;
@@ -2649,7 +2697,7 @@ section#skills {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   white-space: nowrap;
-  color: #ece7dc9e;
+  color: #eaf5d49e;
   grid-template-rows: repeat(6, auto);
   grid-auto-flow: column;
   justify-items: start;
@@ -3003,8 +3051,9 @@ section#skills {
   font-family: var(--font-secondary);
   letter-spacing: 0.06em;
   color: var(--color-light);
-  background: #ece7dc0a;
-  border: 1px solid #ece7dc47;
+  text-decoration: none;
+  background: #eaf5d40a;
+  border: 1px solid #eaf5d447;
   justify-content: center;
   align-items: center;
   padding: 0.7em 1.4em;
@@ -3019,7 +3068,7 @@ section#skills {
 }
 .contact-email:hover {
   border-color: var(--color-accent);
-  background: #ff321d14;
+  background: #b3e82314;
 }
 .contact-email-copied {
   background: var(--color-accent);
