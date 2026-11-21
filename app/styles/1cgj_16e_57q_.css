@@ -1,0 +1,604 @@
+.project-worlds {
+  --project-footer-inset: clamp(24px, 3.5vw, 56px);
+  --project-section-height: max(760px, 71.16vw);
+  position: relative;
+}
+.project-world {
+  --world-bg: var(--black);
+  --world-fg: var(--ivory);
+  height: var(--project-section-height, max(760px, 71.16vw));
+  color: var(--world-fg);
+  background: var(--world-bg);
+  font-family: var(--font-mono);
+  position: relative;
+  overflow: clip;
+}
+.project-world.world-light {
+  --world-bg: var(--ivory);
+  --world-fg: var(--black);
+}
+.world-kicker,
+.world-description,
+.world-link {
+  z-index: 26;
+  font-family: var(--font-mono);
+  margin: 0;
+  line-height: 1.5;
+  position: absolute;
+}
+.world-kicker {
+  top: 6.4%;
+  left: var(--page-pad);
+  max-width: 55%;
+  font-size: var(--meta-size);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.world-description {
+  top: 6.4%;
+  right: var(--page-pad);
+  width: max-content;
+  max-width: calc(50% - var(--page-pad));
+  white-space: nowrap;
+  font-size: min(var(--support-size), calc((50vw - var(--page-pad)) / 32));
+}
+.world-kicker,
+.world-description {
+  background: var(--world-bg);
+  box-shadow: 0 0 0 0.25em var(--world-bg);
+}
+.project-statement-mobile {
+  display: none;
+}
+.project-statement-mobile > span {
+  display: block;
+}
+.world-link {
+  right: var(--page-pad);
+  bottom: var(--project-footer-inset);
+  min-height: 44px;
+  font-size: var(--meta-size);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-bottom: 1px solid;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 12px 0;
+  display: inline-flex;
+}
+.world-link span {
+  font-size: 1.25em;
+  line-height: 1;
+}
+.world-title {
+  z-index: 20;
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
+  font-size: 24vw;
+  font-weight: 850;
+  line-height: 0.82;
+  position: absolute;
+  top: 37%;
+  left: 3%;
+  right: 3%;
+}
+.world-title a {
+  display: block;
+  transform: translate(-0.0175em);
+}
+.world-title a:focus-visible {
+  outline-offset: 14px;
+}
+.thread-path[data-thread-route^="world-"] {
+  opacity: 1;
+}
+.world-composition {
+  width: 100%;
+  margin-inline: auto;
+  position: absolute;
+  inset: 0;
+}
+.world-object {
+  z-index: 8;
+  transform-origin: 50%;
+  margin: 0;
+  position: absolute;
+}
+.world-object > svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.world-object svg {
+  font-family: var(--font-mono);
+  overflow: visible;
+}
+.world-orbit .world-title {
+  font-size: 23.5vw;
+  top: 14.8%;
+}
+.orbit-assistant {
+  z-index: 22;
+  width: 43%;
+  top: 39%;
+  left: 28.5%;
+}
+.orbit-tracks {
+  width: 88%;
+  top: 27%;
+  left: 7%;
+}
+.orbit-fragment {
+  width: 17%;
+  scale: 0.85;
+}
+.orbit-mail {
+  z-index: 21;
+  width: 16.3%;
+  top: 39%;
+  left: 5.4%;
+  rotate: 2deg;
+}
+.orbit-document {
+  z-index: 19;
+  width: 16.3%;
+  top: 43%;
+  right: 5.7%;
+  rotate: -1deg;
+}
+.orbit-brief {
+  z-index: 19;
+  width: 16.3%;
+  top: 63.5%;
+  left: 14.5%;
+  rotate: 1deg;
+}
+.orbit-draft {
+  z-index: 19;
+  width: 16.3%;
+  top: 67%;
+  right: 11.5%;
+  rotate: 1deg;
+}
+.world-mesa .world-title {
+  font-size: 17.8vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mesa-plate {
+  opacity: 0.32;
+  width: 43%;
+  top: 9%;
+  left: -1%;
+}
+.mesa-fork {
+  z-index: 24;
+  width: 8%;
+  top: 21%;
+  left: 2.5%;
+  rotate: 1deg;
+}
+.mesa-message {
+  z-index: 21;
+  width: 17%;
+  top: 16%;
+  left: 48%;
+}
+.mesa-reply {
+  z-index: 21;
+  width: 21%;
+  top: 25%;
+  left: 26%;
+}
+.mesa-ticket {
+  z-index: 21;
+  width: 13.5%;
+  filter: drop-shadow(0 8px 7px color-mix(in srgb, var(--world-fg) 7%, transparent));
+  top: 52%;
+  left: 27%;
+  rotate: 7deg;
+}
+.mesa-wallet {
+  z-index: 22;
+  width: 31.5%;
+  color: var(--world-bg);
+  background: var(--world-fg);
+  border-radius: 10px;
+  grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 0;
+  padding: clamp(10px, 0.9vw, 16px);
+  font-size: clamp(9px, 0.8vw, 13px);
+  display: grid;
+  top: 32%;
+  left: 64%;
+}
+.mesa-wallet-brand {
+  white-space: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(6px, 0.65vw, 12px);
+  display: flex;
+}
+.mesa-wallet-brand > svg {
+  flex: none;
+  width: clamp(18px, 1.6vw, 25px);
+}
+.mesa-wallet-amount {
+  white-space: nowrap;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  border-inline: 1px solid #fff5;
+  place-items: center;
+  min-width: 0;
+  min-height: 2.4em;
+  font-size: clamp(13px, 1.2vw, 20px);
+  line-height: 1.25;
+  display: grid;
+  position: relative;
+}
+.mesa-wallet-amount > span {
+  transform: translateY(-0.3em);
+}
+.mesa-wallet-debit {
+  font-size: 0.72em;
+  position: absolute;
+  inset: auto 0 0;
+}
+.mesa-wallet-status {
+  justify-content: center;
+  display: grid;
+}
+.mesa-wallet-status > span {
+  grid-area: 1/1;
+  align-self: center;
+}
+.mesa-wallet-before {
+  letter-spacing: 0.06em;
+  font-size: 0.75em;
+}
+.mesa-wallet-after {
+  align-items: center;
+  gap: 0.65em;
+  display: flex;
+}
+.mesa-paid-check {
+  width: 2.2em;
+  height: 2.2em;
+  color: var(--world-fg);
+  background: var(--world-bg);
+  border-radius: 50%;
+  place-items: center;
+  display: grid;
+}
+.mesa-paid-check svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+.mesa-wallet-before {
+  visibility: hidden;
+}
+.mesa-bag {
+  z-index: 21;
+  width: 17%;
+  top: 61%;
+  left: 72%;
+  rotate: 7deg;
+}
+.mesa-dashboard {
+  z-index: 21;
+  background: var(--world-bg);
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  width: 24%;
+  top: 82%;
+  left: 32%;
+}
+.mesa-dashboard p {
+  border-bottom: 1px solid;
+  margin: 0;
+  padding: 0.6em 0;
+  font-size: clamp(9px, 0.78vw, 12px);
+}
+.mesa-dashboard-summary {
+  align-items: center;
+  gap: 1vw;
+  padding: calc(0.425em + clamp(7px, 0.55vw, 9px)) 0;
+  display: flex;
+}
+.mesa-dashboard-summary > div {
+  flex: 1;
+}
+.mesa-dashboard-summary > div + div {
+  border-left: 1px solid;
+  padding-left: 1vw;
+}
+.mesa-dashboard strong,
+.mesa-dashboard span {
+  font-weight: 400;
+  display: block;
+}
+.mesa-dashboard strong {
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(17px, 1.65vw, 26px);
+  line-height: 1.3;
+}
+.mesa-dashboard span {
+  white-space: nowrap;
+  font-size: clamp(8px, 0.72vw, 12px);
+}
+.mesa-dashboard-summary > svg {
+  width: 21%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .orbit-fragment > svg {
+    transform-origin: 50%;
+    rotate: calc((1 - var(--orbit-arrival, 0)) * -4deg);
+  }
+  .orbit-document > svg,
+  .orbit-draft > svg {
+    rotate: calc((1 - var(--orbit-arrival, 0)) * 4deg);
+  }
+  .mesa-reply,
+  .mesa-ticket,
+  .mesa-dashboard,
+  .mesa-delivery-status {
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.4s,
+      visibility 0.4s;
+  }
+  .mesa-message[data-thread-reached] ~ .mesa-reply,
+  .mesa-ticket[data-thread-reached],
+  .mesa-dashboard[data-thread-reached],
+  .mesa-bag[data-thread-reached] .mesa-delivery-status {
+    opacity: 1;
+    visibility: visible;
+  }
+  .mesa-wallet-debit {
+    opacity: var(--payment-progress, 0);
+  }
+  .mesa-wallet-after {
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.2s,
+      visibility 0.2s;
+  }
+  .mesa-wallet-before {
+    visibility: visible;
+  }
+  .mesa-wallet-amount > span {
+    transform: translateY(calc(-0.3em * var(--payment-progress, 0)));
+  }
+  .mesa-wallet[data-paid] .mesa-wallet-after {
+    opacity: 1;
+    visibility: visible;
+  }
+  .mesa-wallet[data-paid] .mesa-wallet-before {
+    visibility: hidden;
+  }
+  .mesa-ticket > svg {
+    transform-origin: 50%;
+    animation: 18s ease-in-out infinite paused world-breathe;
+  }
+  .mesa-plate > svg,
+  .mesa-fork > svg,
+  .mesa-bag > svg {
+    transform-origin: 50%;
+    animation: 8s ease-in-out infinite paused meal-drift;
+  }
+  .mesa-plate > svg {
+    animation-duration: 10s;
+  }
+  .mesa-fork > svg {
+    animation-duration: 9s;
+    animation-delay: -3s;
+  }
+  .mesa-bag > svg {
+    animation-delay: -2s;
+  }
+  .project-world[data-world-active] .world-object > svg {
+    animation-play-state: running;
+  }
+}
+@keyframes world-breathe {
+  0%,
+  20%,
+  to {
+    transform: translateY(0) rotate(0);
+  }
+  45%,
+  65% {
+    transform: translateY(-5px) rotate(0.5deg);
+  }
+}
+@keyframes meal-drift {
+  0%,
+  to {
+    transform: translateY(5px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(1deg);
+  }
+}
+@media (min-width: 1800px) {
+  .mesa-plate {
+    width: 40%;
+    left: 2%;
+  }
+}
+@media (min-width: 701px) {
+  .mesa-message {
+    top: 12%;
+  }
+  .mesa-reply {
+    top: 23%;
+  }
+  .mesa-wallet {
+    top: 30%;
+  }
+}
+@media (max-width: 700px) {
+  .project-worlds {
+    --world-unit: min(1vw, 4.5px);
+    --project-section-height: max(1030px, 135svh);
+  }
+  .world-composition {
+    width: min(100%, 450px);
+  }
+  .world-kicker {
+    max-width: calc(100% - 2 * var(--page-pad));
+    top: 5%;
+  }
+  .world-link {
+    left: var(--page-pad);
+    right: auto;
+  }
+  .world-description {
+    top: 9%;
+    left: var(--page-pad);
+    max-width: calc(100% - 2 * var(--page-pad) - 3rem);
+    font-size: var(--support-size);
+    right: auto;
+  }
+  .world-title {
+    font-size: calc(var(--world-unit) * 24);
+    letter-spacing: -0.035em;
+    top: 40%;
+    left: 4%;
+    right: 4%;
+  }
+  .project-statement-desktop {
+    display: none;
+  }
+  .project-statement-mobile {
+    display: block;
+  }
+  .world-orbit {
+    --orbit-height: max(var(--project-section-height), calc(var(--world-unit) * 162 + 440px));
+    --orbit-row-space: max(0px, calc((var(--orbit-height) * 0.8 - var(--world-unit) * 130.4 - 292px) / 2));
+    --orbit-panel-top: calc(20% + var(--world-unit) * 47 + 4rem + var(--orbit-row-space));
+    --orbit-panel-bottom: calc(var(--orbit-panel-top) + var(--world-unit) * 54.8762);
+    height: var(--orbit-height);
+  }
+  .world-orbit .world-title {
+    font-size: calc(var(--world-unit) * 24);
+    top: 20%;
+  }
+  .orbit-assistant {
+    left: 7%;
+    top: calc(20% + var(--world-unit) * 47 + 4rem + var(--orbit-row-space));
+    width: 86%;
+  }
+  .orbit-fragment {
+    scale: 1;
+  }
+  .orbit-mail {
+    left: 6%;
+    top: calc(var(--orbit-panel-top) - var(--world-unit) * 38);
+    z-index: 19;
+    width: 35%;
+    rotate: -9deg;
+  }
+  .orbit-document {
+    right: 3%;
+    top: calc(var(--orbit-panel-top) - var(--world-unit) * 52);
+    z-index: 21;
+    width: 48%;
+    rotate: 14deg;
+  }
+  .orbit-brief {
+    left: 2%;
+    top: calc(var(--orbit-panel-bottom) + var(--world-unit) * 11);
+    z-index: 21;
+    width: 50%;
+    rotate: -15deg;
+  }
+  .orbit-draft {
+    right: 7%;
+    top: calc(var(--orbit-panel-bottom) + var(--world-unit) * 9);
+    width: 30%;
+    rotate: 6deg;
+  }
+  .orbit-tracks {
+    width: 92%;
+    top: 35%;
+    left: 4%;
+  }
+  .world-mesa {
+    --mesa-wallet-top: calc(19% + var(--world-unit) * 33.4 + 56px);
+    --mesa-title-top: calc(var(--mesa-wallet-top) + 84px + var(--world-unit) * 8.9);
+    height: max(var(--project-section-height), calc(var(--world-unit) * 120 + 540px));
+  }
+  .world-mesa .world-title {
+    top: var(--mesa-title-top);
+    font-size: calc(var(--world-unit) * 17.8);
+    z-index: 20;
+  }
+  .mesa-plate {
+    width: 70%;
+    top: 23%;
+    left: 8%;
+  }
+  .mesa-fork {
+    z-index: 19;
+    width: 14%;
+    top: 30%;
+    left: 4%;
+  }
+  .mesa-message {
+    width: 46%;
+    top: 19%;
+    left: 47%;
+  }
+  .mesa-reply {
+    width: 59%;
+    left: 13%;
+    top: calc(19% + var(--world-unit) * 18.4 + 24px);
+  }
+  .mesa-ticket {
+    width: 34%;
+    left: 16%;
+    top: calc(var(--mesa-title-top) + var(--world-unit) * 7);
+  }
+  .mesa-ticket text {
+    font-size: 16px;
+  }
+  .mesa-wallet {
+    width: 82%;
+    left: 14%;
+    top: var(--mesa-wallet-top);
+    padding: 10px 8px;
+  }
+  .mesa-wallet-after {
+    gap: 0.4em;
+  }
+  .mesa-bag {
+    width: 35%;
+    top: min(65%, calc(84% - var(--world-unit) * 43.4 - 40px));
+    left: 58%;
+  }
+  .mesa-dashboard {
+    width: 65%;
+    top: 84%;
+    left: 10%;
+  }
+  .mesa-dashboard-summary {
+    gap: 12px;
+  }
+  .mesa-dashboard-summary > div + div {
+    padding-left: 12px;
+  }
+}
+@media (min-width: 701px) and (max-width: 1199px) {
+  .project-worlds {
+    --project-section-height: 71.16vw;
+  }
+}
